@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { Button } from "./Button";
-import { LivreItem } from "./LivreItem";
-import { getLivres } from "./services/livres";
+import { Button } from "../Button";
+import { LivreItem } from "../LivreItem";
+import { getLivres } from "../services/livres";
 
 function App() {
 	const [loading, setloading] = useState([]);
 	const [livres, setlivres] = useState([]);
 
-	console.log(livres);
+	// console.log(livres);
 
 	// useEffect(() => {
 	// 	getLivres()

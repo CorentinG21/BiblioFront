@@ -9,5 +9,3 @@ export const getLivres = async () => {
 	await waitFor();
 	return await response.json();
 };
-
-await getLivres();

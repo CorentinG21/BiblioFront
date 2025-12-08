@@ -1,7 +1,11 @@
+import { Link } from "react-router";
+
 export const LivreItem = ({ name, isbn }) => {
 	return (
 		<li>
-			{name} | {isbn}
+			<Link to={`livres/${isbn}`}>
+				{name} | {isbn}
+			</Link>
 		</li>
 	);
 };

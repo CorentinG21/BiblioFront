@@ -1,5 +1,19 @@
 import { createRoot } from "react-dom/client";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
 
-import App from "./App.jsx";
+import App from "./Pages/App.jsx";
+import { PageDetails } from "./Pages/PageDetails.jsx";
 
-createRoot(document.getElementById("root")).render(<App />);
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <App />,
+	},
+	{
+		path: "/livres/:isbn",
+		element: <PageDetails />,
+	},
+]);
+
+createRoot(root).render(<RouterProvider router={router} />);
