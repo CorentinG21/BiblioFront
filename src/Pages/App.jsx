@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import { LivreItem } from "../components/LivreItem";
 import { useAPI } from "../hooks/useAPI";
 
@@ -11,6 +13,8 @@ function App() {
 
 	return (
 		<>
+			<Link to="/livres/ajout">Ajouter un Livre</Link>
+
 			{!loading ? (
 				<>
 					<ul>

@@ -8,7 +8,9 @@ export const useAPI = (url) => {
 	const fetchData = useCallback(async () => {
 		setLoading(true);
 		try {
-			const response = await fetch(`http://localhost:3000${url}`);
+			const response = await fetch(
+				`https://formationnodebiblio-production.up.railway.app/${url}`,
+			);
 			if (!response.ok) throw new Error("Erreur API");
 			const json = await response.json();
 			setData(json);

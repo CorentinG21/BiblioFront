@@ -5,6 +5,7 @@ import { RouterProvider } from "react-router/dom";
 import { AppLayout } from "./AppLayout.jsx";
 import { Page404 } from "./Page404.jsx";
 import App from "./Pages/App.jsx";
+import { PageAjoutLivre } from "./Pages/PageAjoutLivre.jsx";
 import { PageAuteur } from "./Pages/PageAuteur.jsx";
 import { PageDetails } from "./Pages/PageDetails.jsx";
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
 			{
 				path: "/auteurs",
 				element: <PageAuteur />,
+			},
+			{
+				path: "/livres/ajout",
+				element: <PageAjoutLivre />,
 			},
 		],
 		errorElement: <Page404 />,

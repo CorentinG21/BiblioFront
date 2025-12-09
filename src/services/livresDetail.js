@@ -1,6 +1,8 @@
 export const getLivresDetails = async (isbn) => {
 	try {
-		const response = await fetch(`http://localhost:3000/livres/${isbn}`);
+		const response = await fetch(
+			`https://formationnodebiblio-production.up.railway.app//livres/${isbn}`,
+		);
 		if (!response.ok) {
 			console.log(response);
 			throw Error("error");
