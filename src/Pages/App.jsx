@@ -19,6 +19,7 @@ function App() {
 								key={livre.ISBN}
 								name={livre.titre}
 								isbn={livre.ISBN}
+								onDelete={fetchData}
 							/>
 						))}
 					</ul>

@@ -1,14 +1,49 @@
+import { LoaderCircle, Trash2 } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router";
 
-export const LivreItem = ({ name, isbn }) => {
+export const LivreItem = ({ name, isbn, onDelete }) => {
+	const [isDelete, setDeleting] = useState(false);
+
+	const deleteBook = async () => {
+		try {
+			setDeleting(true);
+			const res = await fetch(
+				`http://localhost:3000/livres/${isbn}/supprimer`,
+				{ method: "POST" },
+			);
+
+			if (res.ok) {
+				alert("Livre Supprimé !!!");
+				onDelete(isbn);
+				setDeleting(false);
+			} else {
+				const json = await res.json();
+				alert(`Erreur: ${json.error}`);
+			}
+		} catch (err) {
+			alert(`Erreur: ${err.message}`);
+		}
+	};
+
 	return (
-		<li className="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mb-3 shadow hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200">
-			<Link
-				to={`livres/${isbn}`}
-				className="text-gray-900 dark:text-white font-medium hover:underline"
-			>
+		<li className="flex justify-between items-center py-2 border-b">
+			<Link to={`livres/${isbn}`} className="hover:text-gray-600">
 				{name} | {isbn}
 			</Link>
+			<button
+				disabled={isDelete}
+				type="button"
+				onClick={deleteBook}
+				className="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-500 transition-colors"
+			>
+				{isDelete ? (
+					<LoaderCircle className="size-4 animate-spin" />
+				) : (
+					<Trash2 className="size-4" />
+				)}
+				Supprimé
+			</button>
 		</li>
 	);
 };
