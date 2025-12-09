@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 
 import { getLivresDetails } from "../services/livresDetail";
 
@@ -27,28 +27,32 @@ export const PageDetails = () => {
 	if (loading) return <h2>LOADING...</h2>;
 
 	return livre ? (
-		<div>
-			<h1>Détails du livre {livre.titre}</h1>
+		<>
+			<div>
+				<h1>Détails du livre {livre.titre}</h1>
 
-			<p>
-				<strong>ISBN :</strong> {livre.ISBN}
-			</p>
-			<p>
-				<strong>Auteur :</strong> {livre.nomAuteur} {livre.prenomAuteur}
-			</p>
-			<p>
-				<strong>Résumé :</strong> {livre.resumer}
-			</p>
-			<p>
-				<strong>Genre :</strong> {livre.nomgenre}
-			</p>
-			<p>
-				<strong>Éditeur :</strong> {livre.nomEditeur}
-			</p>
-			<p>
-				<strong>Année :</strong> {livre.anneeSortie}
-			</p>
-		</div>
+				<p>
+					<strong>ISBN :</strong> {livre.ISBN}
+				</p>
+				<p>
+					<strong>Auteur :</strong> {livre.nomAuteur} {livre.prenomAuteur}
+				</p>
+				<p>
+					<strong>Résumé :</strong> {livre.resumer}
+				</p>
+				<p>
+					<strong>Genre :</strong> {livre.nomgenre}
+				</p>
+				<p>
+					<strong>Éditeur :</strong> {livre.nomEditeur}
+				</p>
+				<p>
+					<strong>Année :</strong> {livre.anneeSortie}
+				</p>
+			</div>
+
+			<Link to="/">Retour a la liste</Link>
+		</>
 	) : (
 		<h1>Erreur</h1>
 	);
