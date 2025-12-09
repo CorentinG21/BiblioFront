@@ -1,32 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router";
 
-import { Button } from "../Button";
-import { LivreItem } from "../LivreItem";
-import { getLivres } from "../services/livres";
+import { Button } from "../components/Button";
+import { LivreItem } from "../components/LivreItem";
+import { useAPI } from "../hooks/useAPI";
 
 function App() {
-	const [loading, setloading] = useState([]);
-	const [livres, setlivres] = useState([]);
+	const { data, loading, error, fetchData } = useAPI("/livres");
 
-	// console.log(livres);
+	if (loading) return <h2>LOADING...</h2>;
+	if (error) return <h2>Erreur: {error.message}</h2>;
 
-	// useEffect(() => {
-	// 	getLivres()
-	// 	.then((responce) => {
-	// 		setlivres(responce.livres)
-	// 	})
-	// }, []);
-
-	const loadlivre = useCallback(async () => {
-		setloading(true);
-		const res = await getLivres();
-		setlivres(res.livres);
-		setloading(false);
-	}, []);
-
-	useEffect(() => {
-		loadlivre();
-	}, [loadlivre]);
+	const livres = data.livres || [];
 
 	return (
 		<>
@@ -42,7 +26,8 @@ function App() {
 							/>
 						))}
 					</ul>
-					<Button onClick={loadlivre}>Recharger</Button>
+					<Button onClick={fetchData}>Recharger</Button>
+					<Link to="/auteurs">Page des auteurs</Link>
 				</>
 			) : (
 				<h3>Loading...</h3>
