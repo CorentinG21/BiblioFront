@@ -9,7 +9,7 @@ export const LivreItem = ({ name, isbn, onDelete }) => {
 		try {
 			setDeleting(true);
 			const res = await fetch(
-				`https://formationnodebiblio-production.up.railway.app/livres/${isbn}/supprimer`,
+				`${import.meta.env.VITE_API_URL}/livres/${isbn}/supprimer`,
 				{ method: "POST" },
 			);
 

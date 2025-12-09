@@ -1,7 +1,5 @@
 export const getLivres = async () => {
-	const response = await fetch(
-		"https://formationnodebiblio-production.up.railway.app/livres",
-	);
+	const response = await fetch(`${import.meta.env.VITE_API_URL}/livres`);
 	if (!response.ok) throw Error("error");
 	return await response.json();
 };

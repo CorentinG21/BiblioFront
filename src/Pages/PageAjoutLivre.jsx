@@ -18,25 +18,22 @@ export const PageAjoutLivre = () => {
 		if (!isValid) return;
 
 		try {
-			const res = await fetch(
-				"https://formationnodebiblio-production.up.railway.app/livres/ajout",
-				{
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({
-						isbn,
-						titre,
-						idgenre,
-						resumer: "Résumé en attente",
-						anneesortie: 2024,
-						idediteur: 1,
-						nom: "Auteur",
-						prenom: "Inconnu",
-						datenaissance: "1900-01-01",
-						datemort: null,
-					}),
-				},
-			);
+			const res = await fetch(`${import.meta.env.VITE_API_URL}/livres/ajout`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					isbn,
+					titre,
+					idgenre,
+					resumer: "Résumé en attente",
+					anneesortie: 2024,
+					idediteur: 1,
+					nom: "Auteur",
+					prenom: "Inconnu",
+					datenaissance: "1900-01-01",
+					datemort: null,
+				}),
+			});
 
 			if (res.ok) {
 				alert("Livre ajouté !!!!!!");

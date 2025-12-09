@@ -1,7 +1,7 @@
 export const getLivresDetails = async (isbn) => {
 	try {
 		const response = await fetch(
-			`https://formationnodebiblio-production.up.railway.app/livres/${isbn}`,
+			`${import.meta.env.VITE_API_URL}/livres/${isbn}`,
 		);
 		if (!response.ok) {
 			console.log(response);
