@@ -19,7 +19,7 @@ export const PageAjoutLivre = () => {
 
 		try {
 			const res = await fetch(
-				"https://formationnodebiblio-production.up.railway.app//livres/ajout",
+				"https://formationnodebiblio-production.up.railway.app/livres/ajout",
 				{
 					method: "POST",
 					headers: { "Content-Type": "application/json" },

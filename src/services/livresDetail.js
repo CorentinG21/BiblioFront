@@ -1,7 +1,7 @@
 export const getLivresDetails = async (isbn) => {
 	try {
 		const response = await fetch(
-			`https://formationnodebiblio-production.up.railway.app//livres/${isbn}`,
+			`https://formationnodebiblio-production.up.railway.app/livres/${isbn}`,
 		);
 		if (!response.ok) {
 			console.log(response);
