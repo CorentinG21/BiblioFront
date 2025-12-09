@@ -1,6 +1,3 @@
-import { Link } from "react-router";
-
-import { Button } from "../components/Button";
 import { LivreItem } from "../components/LivreItem";
 import { useAPI } from "../hooks/useAPI";
 
@@ -14,7 +11,6 @@ function App() {
 
 	return (
 		<>
-			<h1>Bibliotheque</h1>
 			{!loading ? (
 				<>
 					<ul>
@@ -26,8 +22,7 @@ function App() {
 							/>
 						))}
 					</ul>
-					<Button onClick={fetchData}>Recharger</Button>
-					<Link to="/auteurs">Page des auteurs</Link>
+					{/* <Button onClick={fetchData}>Recharger</Button> */}
 				</>
 			) : (
 				<h3>Loading...</h3>

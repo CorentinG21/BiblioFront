@@ -1,5 +1,3 @@
-import { Link } from "react-router";
-
 import { AuteurItem } from "../components/AuteurItem";
 import { useAPI } from "../hooks/useAPI";
 
@@ -13,7 +11,6 @@ export const PageAuteur = () => {
 
 	return (
 		<div>
-			<h1>Liste des auteurs</h1>
 			<ul>
 				{auteurs.map((auteur) => (
 					<AuteurItem
@@ -24,7 +21,6 @@ export const PageAuteur = () => {
 					/>
 				))}
 			</ul>
-			<Link to="/">Retour a la liste</Link>
 		</div>
 	);
 };
