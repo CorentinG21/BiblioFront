@@ -9,7 +9,7 @@ export const useAPI = (url) => {
 		setLoading(true);
 		try {
 			const response = await fetch(
-				`https://formationnodebiblio-production.up.railway.app/${url}`,
+				`https://formationnodebiblio-production.up.railway.app${url}`,
 			);
 			if (!response.ok) throw new Error("Erreur API");
 			const json = await response.json();
